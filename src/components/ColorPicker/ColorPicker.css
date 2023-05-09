@@ -1,0 +1,6 @@
+.color-picker {
+    border: none;
+    min-width: 400px;
+    cursor: pointer;
+    min-height: 200px;
+}

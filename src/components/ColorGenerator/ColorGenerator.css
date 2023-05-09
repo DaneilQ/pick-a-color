@@ -1,0 +1,33 @@
+.color-generator {
+    width: 400px;
+    height: 400px;
+    border-radius: 15px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin-top: .7rem;
+}
+
+.color-button {
+    border: none;
+    padding: 1rem;
+    border-radius: 15px;
+    font-size: 20px;
+    background-color: whitesmoke;
+    margin: .5rem 0;
+    row-gap: 1rem;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.complete {
+    width: 100%;
+}
+
+.color-button:hover {
+    background-color: rgb(224, 213, 199);
+}
