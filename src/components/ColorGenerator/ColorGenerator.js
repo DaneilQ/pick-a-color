@@ -29,17 +29,26 @@ const ColorGenerator = () => {
     return "#" + arr.toString().replace(/,/g, "");
   };
 
-  const [color, setColor] = useState(() => {
-    return randomNumber();
-  });
+  const [color, setColor] = useState();
 
-  const [fakeColor1, setFakeColor1] = useState(() => {
-    return randomNumber();
-  });
+  const [fakeColor1, setFakeColor1] = useState();
 
-  const [fakeColor2, setFakeColor2] = useState(() => {
-    return randomNumber();
-  });
+  const [fakeColor2, setFakeColor2] = useState();
+
+  const [check, checkColor] = useState();
+
+  const [message, setMessage] = useState(null);
+
+  const reRoll = () => {
+    checkColor(Math.random())
+  }
+
+  useEffect(() => {
+    setColor(randomNumber());
+    setFakeColor1(randomNumber());
+    setFakeColor2(randomNumber());
+    setMessage(null)
+  }, [check])
 
   let groupItems = [color,fakeColor1,fakeColor2]
 
@@ -49,21 +58,23 @@ const ColorGenerator = () => {
   const checkHex = (e) => {
     let val = e.target.dataset.id
     if(val !== color) {
-        console.log('nope')
+        setMessage(false)
         return
     } else {
-        console.log('winner')
+        setMessage(true)
     }
   }
   return (
     <div>
       <div className="color-generator" style={{ backgroundColor: color }}></div>
+      {message && <h2>Winner!!</h2>}
+      {message && <h2>Fucking loser.</h2>}
       <div className="button-container">
         {shuffledNumbers.map((item, index) => (
             <button className="color-button" key={index} data-id={item} onClick={checkHex}>{item}</button>
         ))}
       </div>
-      <button className="color-button complete">Re-roll</button>
+      <button className="color-button complete" onClick={reRoll}>Re-roll</button>
     </div>
   );
 };
