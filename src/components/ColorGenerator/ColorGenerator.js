@@ -92,7 +92,7 @@ const ColorGenerator = (props) => {
     <div>
       <div className="color-generator" style={{ backgroundColor: color }}></div>
       {message && <h2>Winner!!</h2>}
-      {message === false && <h2>Fucking loser.</h2>}
+      {message === false && <h2>Loser.</h2>}
       {message === false && <p>The correct answer was {color} </p>}
       <div className="button-container">
         {groupItems.map((item, index) => (
