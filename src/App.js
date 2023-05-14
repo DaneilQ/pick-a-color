@@ -63,7 +63,13 @@ function App() {
         </Card>
         <Card title='Score'>
           <h2>{score}</h2>
+          { score <= -10 && <p>Jesus, you're f*cking bad at this.</p>}
+          { score >= 10 && <p>Godlike.</p>}
           { score !== 0 && <button onClick={deleteScore} className='color-button'>Delete score</button>}
+        </Card>
+        <Card>
+          <h3>Developed by Daniel Quintero.</h3>
+          <a style={{'color' : bgColor}} href='http://www.danielq.dev'>danielq.dev</a>
         </Card>
       </div>
     </div>
