@@ -31,3 +31,11 @@
 .color-button:hover {
     background-color: rgb(224, 213, 199);
 }
+
+.color-correct {
+    background-color: rgb(150, 226, 114) !important;
+}
+
+.color-incorrect {
+    background-color: rgb(231, 100, 68) !important;
+}
