@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import './App.css';
 
 
@@ -8,28 +8,46 @@ import ColorGenerator from './components/ColorGenerator/ColorGenerator';
 function App() {
   const [bgColor, changingBg] = useState('#000000');
 
-  const [score,setScore] = useState(0);
+  let actualScore = localStorage.getItem('score') || 0;
+
+  const [score,setScore] = useState();
 
   const styleBg = (e) => {
     changingBg(e)
+  }
+
+  const deleteScore = () => {
+    localStorage.removeItem('score')
+    setScore(0)
   }
 
   const checkScore = (e) => {
 
     if(e === 'wrong') {
       setScore(prevScore => {
-        return prevScore - 2;
+        let result = prevScore - 2;
+        localStorage.setItem('score', result)
+        return result
       })
     } else if(e === 'correct') {
       setScore(prevScore => {
-        return prevScore + 2;
+        let result = prevScore + 2;
+
+        localStorage.setItem('score', result)
+        return result
       })
     } else {
       setScore(prevScore => {
-        return prevScore - 1;
+        let result = prevScore - 1;
+        localStorage.setItem('score', result)
+        return result
       })
     }
+
   }
+  useEffect(() => {
+    setScore(actualScore)
+  },[])
 
   return (
     <div className="App" style={{'backgroundColor' : bgColor}}>
@@ -45,6 +63,7 @@ function App() {
         </Card>
         <Card title='Score'>
           <h2>{score}</h2>
+          { score !== 0 && <button onClick={deleteScore} className='color-button'>Delete score</button>}
         </Card>
       </div>
     </div>
