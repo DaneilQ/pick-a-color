@@ -48,10 +48,12 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundColor: bgColor }}>
+      <div className="flex-vert card-1">
       <Card title="Guess the color!">
         <ColorGenerator onChange={styleBg} onScoreChange={checkScore} />
       </Card>
-      <div className="flex-vert">
+      </div>
+      <div className="flex-vert card-2">
         <Card title="Score">
           <h2>{score}</h2>
           {score <= -10 && <p>Jesus, you're f*cking bad at this.</p>}
