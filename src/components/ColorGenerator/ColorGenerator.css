@@ -14,15 +14,24 @@
 
 .color-button {
     border: none;
-    padding: 1rem;
+    padding: .6rem;
     border-radius: 15px;
-    font-size: 20px;
+    font-size: 16px;
     background-color: whitesmoke;
     margin: .5rem 0;
     row-gap: 1rem;
     cursor: pointer;
     transition: .2s ease;
 }
+
+@media (min-width:900px) {
+    .color-button {
+
+        font-size: 20px;
+        padding: 1rem;
+    }
+
+  }
 
 .complete {
     width: 100%;
