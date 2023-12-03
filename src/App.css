@@ -22,7 +22,6 @@ svg {
 
 .flex-vert {
   width: 100%;
-  margin-bottom: 1.8rem;
   min-height: auto;
   display: flex;
   flex-direction: column;
@@ -30,14 +29,14 @@ svg {
   align-items: center;
 }
 .flex-vert:first-child {
-  margin-top: 1.8rem;
+  
 }
 
 @media (min-width:900px) {
   
 
   .flex-vert:first-child {
-    min-height: 60rem;
+    
     margin-top: 0;
     margin-bottom: 0;
   }
